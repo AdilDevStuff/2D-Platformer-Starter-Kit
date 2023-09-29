@@ -7,7 +7,7 @@ export.cfg
 export_presets.cfg
 
 # Ignore Addons
-.addons
+/addons
 
 # Imported translations (automatically generated from CSV files)
 *.translation

@@ -31,7 +31,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdfxr/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
