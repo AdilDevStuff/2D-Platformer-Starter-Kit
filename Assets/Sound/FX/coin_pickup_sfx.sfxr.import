@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://vrusmhs8ok45"
+path="res://.godot/imported/coin_pickup_sfx.sfxr-59c17db30aa0bf91ba9d9fb62804dac5.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/FX/coin_pickup_sfx.sfxr"
+dest_files=["res://.godot/imported/coin_pickup_sfx.sfxr-59c17db30aa0bf91ba9d9fb62804dac5.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

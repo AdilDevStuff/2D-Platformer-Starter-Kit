@@ -1,0 +1,165 @@
+{
+	"categories": [
+		{
+			"uuid": "9fa9986f-a4d9-4610-9d26-09a98b2edbb7",
+			"title": "Task",
+			"color": "3d7ed1"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "f95be11a-dbff-41ed-8d90-19fe7f95e8d2",
+			"title": "Todo",
+			"tasks": []
+		},
+		{
+			"uuid": "19294337-c3aa-405e-b164-138e8894fab2",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "9821fec3-d06c-44cd-b7c3-ddce42af0901",
+			"title": "Done",
+			"tasks": [
+				"e1614c89-247a-4102-892c-2c28db477f33",
+				"44249a39-aceb-4aa2-a8c5-36b072a79136",
+				"f2956c46-fdaa-498c-83b8-b69f85584a36",
+				"54378934-80fb-47c5-a50d-562dbf2aea38",
+				"57ea5364-8ee5-4175-b4f4-997072d670ba",
+				"be9264d9-0690-4f4a-b69d-76684117d4bc",
+				"4fb81e80-6c0b-4e55-84a0-3ec08c9c2869",
+				"522b9e35-2176-4999-aa6a-dec0ef3e0a5f"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "e1614c89-247a-4102-892c-2c28db477f33",
+			"title": "Add More Tiles To The Ground Tileset",
+			"description": "",
+			"category": "9fa9986f-a4d9-4610-9d26-09a98b2edbb7",
+			"steps": []
+		},
+		{
+			"uuid": "44249a39-aceb-4aa2-a8c5-36b072a79136",
+			"title": "Add Traps",
+			"description": "",
+			"category": "9fa9986f-a4d9-4610-9d26-09a98b2edbb7",
+			"steps": [
+				{
+					"details": "Spikes",
+					"done": true
+				}
+			]
+		},
+		{
+			"uuid": "f2956c46-fdaa-498c-83b8-b69f85584a36",
+			"title": "Add Score System",
+			"description": "",
+			"category": "9fa9986f-a4d9-4610-9d26-09a98b2edbb7",
+			"steps": [
+				{
+					"details": "Rotating Coin",
+					"done": true
+				},
+				{
+					"details": "Adding Score",
+					"done": true
+				},
+				{
+					"details": "Updating UI",
+					"done": true
+				}
+			]
+		},
+		{
+			"uuid": "54378934-80fb-47c5-a50d-562dbf2aea38",
+			"title": "Add Score UI",
+			"description": "",
+			"category": "9fa9986f-a4d9-4610-9d26-09a98b2edbb7",
+			"steps": []
+		},
+		{
+			"uuid": "57ea5364-8ee5-4175-b4f4-997072d670ba",
+			"title": "Level Finish Door",
+			"description": "",
+			"category": "9fa9986f-a4d9-4610-9d26-09a98b2edbb7",
+			"steps": []
+		},
+		{
+			"uuid": "be9264d9-0690-4f4a-b69d-76684117d4bc",
+			"title": "Scene Management",
+			"description": "",
+			"category": "9fa9986f-a4d9-4610-9d26-09a98b2edbb7",
+			"steps": []
+		},
+		{
+			"uuid": "522b9e35-2176-4999-aa6a-dec0ef3e0a5f",
+			"title": "Game Juice",
+			"description": "",
+			"category": "9fa9986f-a4d9-4610-9d26-09a98b2edbb7",
+			"steps": [
+				{
+					"details": "Jump Animation",
+					"done": true
+				},
+				{
+					"details": "Footstep Particles",
+					"done": true
+				},
+				{
+					"details": "Coin Particles",
+					"done": true
+				},
+				{
+					"details": "Death Particles",
+					"done": true
+				}
+			]
+		},
+		{
+			"uuid": "5bcaa508-8f78-44c3-a8b9-0d047cdbd844",
+			"title": "FPS Counter Toggle",
+			"description": "",
+			"category": "9fa9986f-a4d9-4610-9d26-09a98b2edbb7",
+			"steps": []
+		},
+		{
+			"uuid": "4fb81e80-6c0b-4e55-84a0-3ec08c9c2869",
+			"title": "Sound Effects",
+			"description": "",
+			"category": "9fa9986f-a4d9-4610-9d26-09a98b2edbb7",
+			"steps": [
+				{
+					"details": "Jump",
+					"done": true
+				},
+				{
+					"details": "Death",
+					"done": true
+				},
+				{
+					"details": "Coin Pickup",
+					"done": true
+				},
+				{
+					"details": "Level Complete",
+					"done": true
+				}
+			]
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"f95be11a-dbff-41ed-8d90-19fe7f95e8d2"
+			],
+			[
+				"19294337-c3aa-405e-b164-138e8894fab2"
+			],
+			[
+				"9821fec3-d06c-44cd-b7c3-ddce42af0901"
+			]
+		]
+	}
+}

@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://bpwseyvsredie"
+path="res://.godot/imported/level_complete_sfx.sfxr-636e0330fde7c806f6d877ffcabeb4e4.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/FX/level_complete_sfx.sfxr"
+dest_files=["res://.godot/imported/level_complete_sfx.sfxr-636e0330fde7c806f6d877ffcabeb4e4.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0
