@@ -66,12 +66,11 @@ sources/0 = SubResource("TileSetAtlasSource_rndpx")
 [node name="Player" parent="." instance=ExtResource("2_lpo2y")]
 z_index = 1
 position = Vector2(150, 318)
-double_jump = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(16, 36)
 limit_left = 0
-limit_right = 1986
+limit_right = 1985
 limit_bottom = 705
 limit_smoothed = true
 position_smoothing_enabled = true

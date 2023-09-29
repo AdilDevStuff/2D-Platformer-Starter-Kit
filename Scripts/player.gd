@@ -2,14 +2,14 @@ extends CharacterBody2D
 
 # --------- VARIABLES ---------- #
 
-@export_category("Player Properties")
+@export_category("Player Properties") # You can tweak these changes according to your likings
 @export var move_speed : float = 400
 @export var jump_force : float = 600
 @export var gravity : float = 30
 @export var max_jump_count : int = 2
 var jump_count : int = 2
 
-@export_category("Toggle Functions")
+@export_category("Toggle Functions") # Double jump feature is disable by default (Can be toggled from inspector)
 @export var double_jump : = false
 
 var is_grounded : bool = false
@@ -47,7 +47,6 @@ func movement():
 # Handles jumping functionality (double jump or single jump, can be toggled from inspector)
 func handle_jumping():
 	if Input.is_action_just_pressed("Jump"):
-		jump_tween()
 		if is_on_floor() and !double_jump:
 			jump()
 		elif double_jump and jump_count > 0:
@@ -56,6 +55,7 @@ func handle_jumping():
 
 # Player jump
 func jump():
+	jump_tween()
 	AudioManager.jump_sfx.play()
 	velocity.y = -jump_force
 
