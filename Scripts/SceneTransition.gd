@@ -20,6 +20,7 @@ func load_scene(target_scene: PackedScene):
 		state.SCALE:
 			transition_animation("scale", target_scene)
 
+# This function handles the transition animation
 func transition_animation(animation_name: String, scene: PackedScene):
 	scene_transition_anim.play(animation_name)
 	await scene_transition_anim.animation_finished

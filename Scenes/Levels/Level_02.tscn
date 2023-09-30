@@ -111,7 +111,7 @@ layer_0/tile_data = PackedInt32Array(524298, 0, 5, 524299, 0, 5, 524300, 0, 5, 5
 
 [node name="SpawnPoint" type="Marker2D" parent="Level"]
 unique_name_in_owner = true
-position = Vector2(174, 383)
+position = Vector2(232, 328)
 
 [node name="TutorialText" type="Node2D" parent="."]
 
