@@ -86,13 +86,13 @@ editor_draw_drag_margin = true
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("3_nht2m")]
-position = Vector2(696, 416)
+position = Vector2(603, 392)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("3_nht2m")]
 position = Vector2(864, 353)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("3_nht2m")]
-position = Vector2(1024, 416)
+position = Vector2(1131, 398)
 
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("4_ndpt4")
