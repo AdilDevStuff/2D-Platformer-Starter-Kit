@@ -13,6 +13,7 @@ var jump_count : int = 2
 @export var double_jump : = false
 
 var is_grounded : bool = false
+var movement_enabled : bool = true
 
 @onready var player_sprite = $AnimatedSprite2D
 @onready var spawn_point = %SpawnPoint
@@ -40,13 +41,15 @@ func movement():
 	handle_jumping()
 	
 	# Move Player
-	var inputAxis = Input.get_axis("Left", "Right")
+	var inputAxis = 0.0
+	if movement_enabled:
+		inputAxis = Input.get_axis("Left", "Right")
 	velocity = Vector2(inputAxis * move_speed, velocity.y)
 	move_and_slide()
 
 # Handles jumping functionality (double jump or single jump, can be toggled from inspector)
 func handle_jumping():
-	if Input.is_action_just_pressed("Jump"):
+	if Input.is_action_just_pressed("Jump") and movement_enabled:
 		if is_on_floor() and !double_jump:
 			jump()
 		elif double_jump and jump_count > 0:
@@ -81,18 +84,22 @@ func flip_player():
 
 # Tween Animations
 func death_tween():
+	movement_enabled = false
 	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2.ZERO, 0.15)
+	tween.tween_property(player_sprite, "scale", Vector2.ZERO, 0.15)
+	tween.parallel().tween_property(player_sprite, "position", Vector2.ZERO, 0.15)
 	await tween.finished
 	global_position = spawn_point.global_position
 	await get_tree().create_timer(0.3).timeout
+	movement_enabled = true
 	AudioManager.respawn_sfx.play()
 	respawn_tween()
 
 func respawn_tween():
 	var tween = create_tween()
 	tween.stop(); tween.play()
-	tween.tween_property(self, "scale", Vector2.ONE, 0.15) 
+	tween.tween_property(player_sprite, "scale", Vector2.ONE, 0.15) 
+	tween.parallel().tween_property(player_sprite, "position", Vector2(0,-48), 0.15)
 
 func jump_tween():
 	var tween = create_tween()

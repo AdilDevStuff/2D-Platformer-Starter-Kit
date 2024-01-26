@@ -69,21 +69,23 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 script = ExtResource("1_qt7d6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_4nss6")
 animation = &"Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 15)
+position = Vector2(2.08165e-12, -33)
 shape = SubResource("CapsuleShape2D_n4sts")
 
 [node name="Collision" type="Area2D" parent="."]
+position = Vector2(2.08165e-12, -48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
 position = Vector2(0, 14.5)
 shape = SubResource("RectangleShape2D_tvbjh")
 
 [node name="ParticleTrails" type="CPUParticles2D" parent="."]
-position = Vector2(0, 42)
+position = Vector2(2.08165e-12, -6)
 emitting = false
 amount = 20
 lifetime = 0.4
@@ -101,7 +103,7 @@ scale_amount_curve = SubResource("Curve_m2jh0")
 color_ramp = SubResource("Gradient_3gc37")
 
 [node name="DeathParticles" type="CPUParticles2D" parent="."]
-position = Vector2(-1, 15)
+position = Vector2(2.08165e-12, -33)
 emitting = false
 amount = 20
 lifetime = 0.6
