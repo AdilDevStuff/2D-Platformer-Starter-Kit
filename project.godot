@@ -29,6 +29,10 @@ AudioManager="*res://Scenes/Managers/AudioManager.tscn"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[dotnet]
+
+project/assembly_name="2D-Platformer-Starter"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gdfxr/plugin.cfg")
