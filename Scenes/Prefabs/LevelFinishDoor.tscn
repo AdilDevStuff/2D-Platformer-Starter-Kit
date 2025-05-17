@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cyti38f0lagf2"]
 
-[ext_resource type="Script" path="res://Scripts/LevelFinishDoor.gd" id="1_bto8y"]
+[ext_resource type="Script" uid="uid://dlsrb11rgmv50" path="res://Scripts/LevelFinishDoor.gd" id="1_bto8y"]
 [ext_resource type="Texture2D" uid="uid://clnok6h0axegl" path="res://Assets/platformPack_tile048.png" id="2_v64bf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34g1n"]

@@ -1,12 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjanwm3sy2x37"]
+[gd_scene load_steps=14 format=4 uid="uid://cjanwm3sy2x37"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
 [ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_0ac5u"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_pay8t"]
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="3_rrh80"]
-[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_vgfkr"]
+[ext_resource type="Script" uid="uid://g6oa1rfikatd" path="res://Scripts/GameManager.gd" id="4_vgfkr"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_wqbaa"]
-[ext_resource type="Script" path="res://Scripts/GameUI.gd" id="6_66mfc"]
+[ext_resource type="Script" uid="uid://domyi75bwl5ad" path="res://Scripts/GameUI.gd" id="6_66mfc"]
 [ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="7_j7jun"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="8_gwcy2"]
 
@@ -14,36 +14,18 @@
 texture = ExtResource("5_wqbaa")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, 32, 32, 32, -32, -32, -32)
 0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 16, -32, 16)
 0:2/0/physics_layer_0/polygon_0/one_way = true
 2:4/0 = 0
-2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:4/0/physics_layer_0/angular_velocity = 0.0
 2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 0, -32, 0)
 4:0/0 = 0
-4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:0/0/physics_layer_0/angular_velocity = 0.0
 4:1/0 = 0
-4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:1/0/physics_layer_0/angular_velocity = 0.0
 5:0/0 = 0
-5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:0/0/physics_layer_0/angular_velocity = 0.0
 5:1/0 = 0
-5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:1/0/physics_layer_0/angular_velocity = 0.0
 2:5/0 = 0
-2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:5/0/physics_layer_0/angular_velocity = 0.0
 3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSet" id="TileSet_ywwrl"]
@@ -55,8 +37,6 @@ sources/0 = SubResource("TileSetAtlasSource_gs0qk")
 texture = ExtResource("5_wqbaa")
 texture_region_size = Vector2i(64, 64)
 0:5/0 = 0
-0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:5/0/physics_layer_0/angular_velocity = 0.0
 0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, 16, 0, 32, 32, -32, 32)
 
 [sub_resource type="TileSet" id="TileSet_2fcbi"]
@@ -103,15 +83,15 @@ position = Vector2(844, 408)
 
 [node name="Level" type="Node2D" parent="."]
 
-[node name="Ground" type="TileMap" parent="Level" groups=["Ground"]]
+[node name="Ground" type="TileMapLayer" parent="Level"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAAAAgAAAADAAAAAAAAAAkAAAADAAAAAAABAAkAAAADAAAAAAACAAkAAAADAAAAAAADAAkAAAADAAAAAAAEAAkAAAADAAAAAAAEAAoAAAADAAAAAAADAAoAAAADAAAAAAACAAoAAAADAAAAAAABAAoAAAADAAAAAAAAAAoAAAADAAAAAAABAAgAAAADAAAAAAACAAgAAAADAAAAAAADAAgAAAADAAAAAAAEAAgAAAADAAAAAAANAAcAAAAAAAAAAAANAAgAAAADAAAAAAANAAkAAAADAAAAAAANAAoAAAADAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAADAAAAAAAOAAkAAAADAAAAAAAOAAoAAAADAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAADAAAAAAAPAAkAAAADAAAAAAAPAAoAAAADAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAADAAAAAAAQAAkAAAADAAAAAAAQAAoAAAADAAAAAAARAAcAAAAAAAAAAAARAAgAAAADAAAAAAARAAkAAAADAAAAAAARAAoAAAADAAAAAAASAAcAAAAAAAAAAAASAAgAAAADAAAAAAASAAkAAAADAAAAAAASAAoAAAADAAAAAAATAAcAAAAAAAAAAAATAAgAAAADAAAAAAATAAkAAAADAAAAAAATAAoAAAADAAAAAAAUAAcAAAAAAAAAAAAUAAgAAAADAAAAAAAUAAkAAAADAAAAAAAUAAoAAAADAAAAAAAVAAcAAAAAAAAAAAAVAAgAAAADAAAAAAAVAAkAAAADAAAAAAAVAAoAAAADAAAAAAAKAAoAAAADAAAAAAALAAoAAAADAAAAAAAMAAoAAAADAAAAAAAFAAoAAAADAAAAAAAGAAoAAAADAAAAAAAHAAoAAAADAAAAAAAIAAoAAAADAAAAAAAJAAoAAAADAAAAAAAFAAcAAAAAAAIAAAAIAAcAAAAAAAIAAAAJAAcAAAAAAAIAAAAMAAcAAAAAAAIAAAD//woAAAADAAAAAAD//wkAAAADAAAAAAD//wgAAAADAAAAAAD//wcAAAADAAAAAAD//wYAAAADAAAAAAD//wUAAAADAAAAAAD//wQAAAADAAAAAAD//wMAAAADAAAAAAD//wIAAAADAAAAAAD//wEAAAADAAAAAAD//wAAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_ywwrl")
-format = 2
-layer_0/tile_data = PackedInt32Array(458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 524288, 196608, 0, 589824, 196608, 0, 589825, 196608, 0, 589826, 196608, 0, 589827, 196608, 0, 589828, 196608, 0, 655364, 196608, 0, 655363, 196608, 0, 655362, 196608, 0, 655361, 196608, 0, 655360, 196608, 0, 524289, 196608, 0, 524290, 196608, 0, 524291, 196608, 0, 524292, 196608, 0, 458765, 0, 0, 524301, 196608, 0, 589837, 196608, 0, 655373, 196608, 0, 458766, 0, 0, 524302, 196608, 0, 589838, 196608, 0, 655374, 196608, 0, 458767, 0, 0, 524303, 196608, 0, 589839, 196608, 0, 655375, 196608, 0, 458768, 0, 0, 524304, 196608, 0, 589840, 196608, 0, 655376, 196608, 0, 458769, 0, 0, 524305, 196608, 0, 589841, 196608, 0, 655377, 196608, 0, 458770, 0, 0, 524306, 196608, 0, 589842, 196608, 0, 655378, 196608, 0, 458771, 0, 0, 524307, 196608, 0, 589843, 196608, 0, 655379, 196608, 0, 458772, 0, 0, 524308, 196608, 0, 589844, 196608, 0, 655380, 196608, 0, 458773, 0, 0, 524309, 196608, 0, 589845, 196608, 0, 655381, 196608, 0, 655370, 196608, 0, 655371, 196608, 0, 655372, 196608, 0, 655365, 196608, 0, 655366, 196608, 0, 655367, 196608, 0, 655368, 196608, 0, 655369, 196608, 0, 458757, 0, 2, 458760, 0, 2, 458761, 0, 2, 458764, 0, 2, 720895, 196608, 0, 655359, 196608, 0, 589823, 196608, 0, 524287, 196608, 0, 458751, 196608, 0, 393215, 196608, 0, 327679, 196608, 0, 262143, 196608, 0, 196607, 196608, 0, 131071, 196608, 0, 65535, 196608, 0)
 
-[node name="Traps" type="TileMap" parent="Level" groups=["Traps"]]
+[node name="Traps" type="TileMapLayer" parent="Level" groups=["Traps"]]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAMAAkAAAAAAAUAAAALAAkAAAAAAAUAAAAKAAkAAAAAAAUAAAAJAAkAAAAAAAUAAAAIAAkAAAAAAAUAAAAHAAkAAAAAAAUAAAAGAAkAAAAAAAUAAAAFAAkAAAAAAAUAAAA=")
 tile_set = SubResource("TileSet_2fcbi")
-format = 2
-layer_0/tile_data = PackedInt32Array(589836, 0, 5, 589835, 0, 5, 589834, 0, 5, 589833, 0, 5, 589832, 0, 5, 589831, 0, 5, 589830, 0, 5, 589829, 0, 5)
 
 [node name="SpawnPoint" type="Marker2D" parent="Level"]
 unique_name_in_owner = true

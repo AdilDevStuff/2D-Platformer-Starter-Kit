@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b6l5fr1d4aluu"]
 
-[ext_resource type="Script" path="res://Scripts/SceneTransition.gd" id="1_gssjm"]
+[ext_resource type="Script" uid="uid://vn56dcmcrlr0" path="res://Scripts/SceneTransition.gd" id="1_gssjm"]
 
 [sub_resource type="Animation" id="Animation_5geqc"]
 length = 0.001
@@ -123,9 +123,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7j1ja"]
 _data = {
-"RESET": SubResource("Animation_5geqc"),
-"fade": SubResource("Animation_prtmo"),
-"scale": SubResource("Animation_fsy6v")
+&"RESET": SubResource("Animation_5geqc"),
+&"fade": SubResource("Animation_prtmo"),
+&"scale": SubResource("Animation_fsy6v")
 }
 
 [node name="SceneTransition" type="CanvasLayer"]

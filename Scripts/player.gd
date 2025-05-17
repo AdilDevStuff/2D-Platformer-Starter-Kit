@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export_category("Player Properties") # You can tweak these changes according to your likings
 @export var move_speed : float = 400
-@export var jump_force : float = 800
+@export var jump_force : float = 650
 @export var gravity : float = 30
 @export var max_jump_count : int = 2
 var jump_count : int = 2
@@ -45,7 +45,7 @@ func movement():
 	var inputAxis = 0.0
 	if movement_enabled:
 		inputAxis = Input.get_axis("Left", "Right")
-	velocity = Vector2(inputAxis * move_speed, velocity.y)
+	velocity.x = inputAxis * move_speed
 	move_and_slide()
 
 # Handles jumping functionality (double jump or single jump, can be toggled from inspector)
@@ -110,8 +110,8 @@ func jump_tween():
 # --------- SIGNALS ---------- #
 
 # Reset the player's position to the current level spawn point if collided with any trap
-func _on_collision_body_entered(_body):
-	if _body.is_in_group("Traps"):
+func _on_collision_body_entered(body):
+	if body.is_in_group("Traps"):
 		AudioManager.death_sfx.play()
 		death_particles.emitting = true
 		death_tween()
