@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # --------- VARIABLES ---------- #
-# GlobalUtils.gd
+
 
 @export_category("Player Properties") # You can tweak these changes according to your likings
 @export var move_speed : float = 400
@@ -9,12 +9,15 @@ extends CharacterBody2D
 @export var gravity : float = 30
 @export var max_jump_count : int = 2
 var jump_count : int = 2
-var is_dying_from_chocolate := false
+
 @export_category("Toggle Functions") # Double jump feature is disable by default (Can be toggled from inspector)
 @export var double_jump : = false
 
 var is_grounded : bool = false
 var movement_enabled : bool = true
+
+var is_dying_from_chocolate := false
+var is_shocked := false
 
 @onready var player_sprite = $AnimatedSprite2D
 @onready var spawn_point = %SpawnPoint
@@ -31,7 +34,9 @@ func _physics_process(_delta):
 func _process(_delta):
 	player_animations()
 	flip_player()
-	
+	Electrocuted()
+
+
 # --------- CUSTOM FUNCTIONS ---------- #
 
 # <-- Player Movement Code -->
@@ -131,12 +136,16 @@ func jump_tween():
 	tween.tween_property(self, "scale", Vector2.ONE, 0.1)
 
 func death_manager():
+	is_shocked = false
 	is_dying_from_chocolate = false
 	var death_location: Vector2 = global_position
 	player_died.emit(death_location)
 	AudioManager.death_sfx.play()
 	death_particles.emitting = true
-	GameManager.spawn_body(global_position)
+	if (is_shocked):
+		GameManager.body_manager("normal",global_position,1)
+	else:	
+		GameManager.body_manager("normal",global_position,1)
 	death_tween()
 	
 # --------- SIGNALS ---------- #›
@@ -149,7 +158,6 @@ func _on_collision_body_entered(body):
 
 func _on_collision_area_entered(area):
 	if area.is_in_group("Chocolate") and !is_dying_from_chocolate:
-		push_warning("in choc")
 		is_dying_from_chocolate = true
 		await get_tree().create_timer(5.0).timeout
 		if is_dying_from_chocolate:
@@ -157,4 +165,20 @@ func _on_collision_area_entered(area):
 			is_dying_from_chocolate = false
 		else:
 			pass
-		
+	if area.is_in_group("Battery") and !is_shocked:
+		push_warning("in player")
+		is_shocked = true
+		push_warning("out player")
+	if area.is_in_group("catFood") :
+		is_shocked = true
+	if area.is_in_group("conductive"):
+		push_warning("in cond")
+		if is_shocked == true:
+			death_manager()
+
+# --------- Power Ups ---------- #›
+func Electrocuted():
+	pass
+	#while is_shocked:
+	#	pass
+	

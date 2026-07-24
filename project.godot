@@ -45,6 +45,9 @@ enabled=PackedStringArray()
 
 Traps=""
 Chocolate=""
+Battery=""
+CatFood=""
+conductive=""
 
 [input]
 

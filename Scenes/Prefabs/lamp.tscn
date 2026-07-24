@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://e21340x3o65c"]
+
+[ext_resource type="Script" uid="uid://buaok2658q8n0" path="res://Scripts/lamp.gd" id="1_uecvx"]
+[ext_resource type="Texture2D" uid="uid://c0nsqpjfdvebs" path="res://Assets/lamp.jpg" id="2_6e2bk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6e2bk"]
+size = Vector2(41, 44)
+
+[node name="Lamp" type="Area2D" unique_id=682137691 groups=["conductive"]]
+script = ExtResource("1_uecvx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1674368243]
+position = Vector2(-18.999998, -14.5)
+scale = Vector2(0.15143602, 0.12128713)
+texture = ExtResource("2_6e2bk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1132083723]
+position = Vector2(-20.5, -15)
+shape = SubResource("RectangleShape2D_6e2bk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

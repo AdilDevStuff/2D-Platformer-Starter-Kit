@@ -7,26 +7,21 @@ var initial_position := Vector2.ZERO
 
 func _ready():
 	initial_position = position
-	add_to_group("Coin")
+	add_to_group("CatFood")
 
 func _process(delta):
-	coin_hover(delta)
+	battrey_hover(delta)
 
-func coin_hover(delta):
+func battrey_hover(delta):
 	time_passed += delta
 	var new_y = initial_position.y + amplitude * sin(frequency * time_passed)
 	position.y = new_y
 
-# Coin collected
 func _on_body_entered(body):
+	push_warning("in bat")
 	if body.is_in_group("Player"):
-		AudioManager.coin_pickup_sfx.play()
-		GameManager.add_score()
-		var tween = create_tween()
-		tween.tween_property(self, "scale", Vector2.ZERO, 0.1)
-		await tween.finished
+		#await get_tree().create_timer(.0).timeout
 		deactivate()
-
 
 func deactivate():
 	visible = false
@@ -36,7 +31,6 @@ func deactivate():
 
 func reset():
 	visible = true
-	scale = Vector2.ONE
 	set_deferred("monitoring", true)
 	set_deferred("monitorable", true)
 	set_process(true)
