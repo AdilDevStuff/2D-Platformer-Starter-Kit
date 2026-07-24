@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="1_h67iq"]
 [ext_resource type="Texture2D" uid="uid://dfipexn0hpw7f" path="res://Assets/Backgrounds/e0481706-b4b0-4d2f-bf1c-a2afacea7c26.png" id="2_txo2w"]
 [ext_resource type="Script" uid="uid://b0ga5nchu0avd" path="res://Scripts/door.gd" id="3_txo2w"]
+[ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="4_qje7x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycpgg"]
 size = Vector2(2287, 44)
@@ -12,6 +13,17 @@ size = Vector2(71, 1353)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wlwl6"]
 size = Vector2(111, 248)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_skhe8"]
+texture = ExtResource("4_qje7x")
+texture_region_size = Vector2i(64, 64)
+0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, 16, 0, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_woimb"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_skhe8")
 
 [node name="Lvl1" type="Node2D" unique_id=50539248]
 
@@ -81,5 +93,10 @@ shape = SubResource("RectangleShape2D_wlwl6")
 
 [node name="FromDoorA" type="Marker2D" parent="." unique_id=1857143123]
 position = Vector2(2296, 826)
+
+[node name="Traps" type="TileMapLayer" parent="." unique_id=859846409 groups=["Traps"]]
+use_parent_material = true
+tile_map_data = PackedByteArray(0, 0, 8, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0, 0, 7, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0, 0)
+tile_set = SubResource("TileSet_woimb")
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
