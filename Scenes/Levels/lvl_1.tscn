@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7cru2370tvmd"]
 
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="1_h67iq"]
-[ext_resource type="Texture2D" uid="uid://rw85582dbo7q" path="res://Assets/Backgrounds/60f16c61-e2d9-4ab0-9aea-29ac769e752f.png" id="2_txo2w"]
+[ext_resource type="Texture2D" uid="uid://dfipexn0hpw7f" path="res://Assets/Backgrounds/e0481706-b4b0-4d2f-bf1c-a2afacea7c26.png" id="2_txo2w"]
 [ext_resource type="Script" uid="uid://b0ga5nchu0avd" path="res://Scripts/door.gd" id="3_txo2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycpgg"]
@@ -67,10 +67,19 @@ shape = SubResource("RectangleShape2D_i1gdu")
 position = Vector2(2458, 731)
 shape = SubResource("RectangleShape2D_i1gdu")
 
-[node name="Door" type="Area2D" parent="." unique_id=1222839539]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1147193156]
+polygon = PackedVector2Array(82, 970, 120, 973, 123, 1001, 157, 1002, 157, 1029, 187, 1029, 186, 1062, 215, 1063, 215, 1094, 241, 1094, 239, 1127, 264, 1129, 263, 1162, 287, 1163, 288, 1193, 315, 1194, 315, 1219, 319, 1219, 317, 1238, 334, 1238, 335, 1261, 359, 1262, 359, 1302, 82, 1307)
+
+[node name="Door" type="Area2D" parent="." unique_id=1222839539 node_paths=PackedStringArray("target_position") groups=["Door", "Player"]]
 script = ExtResource("3_txo2w")
+target_position = NodePath("../FromDoorA")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=579558061]
 visibility_layer = 4
 position = Vector2(2286, 306)
 shape = SubResource("RectangleShape2D_wlwl6")
+
+[node name="FromDoorA" type="Marker2D" parent="." unique_id=1857143123]
+position = Vector2(2296, 826)
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
