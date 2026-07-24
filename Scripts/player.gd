@@ -158,19 +158,25 @@ func _on_collision_body_entered(body):
 
 func _on_collision_area_entered(area):
 	if area.is_in_group("Chocolate") and !is_dying_from_chocolate:
+		push_warning("in")
 		is_dying_from_chocolate = true
 		await get_tree().create_timer(5.0).timeout
 		if is_dying_from_chocolate:
 			death_manager()
 			is_dying_from_chocolate = false
 		else:
+			push_warning("passed")
 			pass
 	if area.is_in_group("Battery") and !is_shocked:
 		push_warning("in player")
 		is_shocked = true
 		push_warning("out player")
-	if area.is_in_group("catFood") :
-		is_shocked = true
+	if area.is_in_group("CatFood") :
+		var tween = create_tween()
+		tween.tween_property(player_sprite, "scale", Vector2(2, 2), 0.2)
+		
+		
+		
 	if area.is_in_group("conductive"):
 		push_warning("in cond")
 		if is_shocked == true:
