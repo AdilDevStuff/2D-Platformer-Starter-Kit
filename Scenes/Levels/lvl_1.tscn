@@ -1,20 +1,11 @@
 [gd_scene format=3 uid="uid://7cru2370tvmd"]
 
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="1_h67iq"]
-[ext_resource type="Texture2D" uid="uid://dfipexn0hpw7f" path="res://Assets/Backgrounds/e0481706-b4b0-4d2f-bf1c-a2afacea7c26.png" id="2_txo2w"]
 [ext_resource type="Script" uid="uid://b0ga5nchu0avd" path="res://Scripts/door.gd" id="3_txo2w"]
+[ext_resource type="Texture2D" uid="uid://i1kkluxugqwj" path="res://Assets/HouseInterior_TileSet/AssetsSheet_House.png" id="3_woimb"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="4_qje7x"]
 [ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="5_woimb"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="6_n2l3o"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycpgg"]
-size = Vector2(2287, 44)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1gdu"]
-size = Vector2(71, 1353)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlwl6"]
-size = Vector2(111, 248)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_skhe8"]
 texture = ExtResource("4_qje7x")
@@ -26,6 +17,22 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_skhe8")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2l3o"]
+texture = ExtResource("3_woimb")
+texture_region_size = Vector2i(8, 8)
+7:9/0 = 0
+8:9/0 = 0
+8:10/0 = 0
+7:11/0 = 0
+7:10/0 = 0
+8:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wlwl6"]
+sources/0 = SubResource("TileSetAtlasSource_n2l3o")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlwl6"]
+size = Vector2(111, 248)
 
 [node name="Lvl1" type="Node2D" unique_id=50539248]
 
@@ -53,36 +60,15 @@ editor_draw_drag_margin = true
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1603935601]
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1380361160]
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_txo2w")
-centered = false
+[node name="Level" type="Node2D" parent="Parallax2D" unique_id=1954829523]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1434838804]
+[node name="Traps" type="TileMapLayer" parent="Parallax2D/Level" unique_id=859846409 groups=["Traps"]]
+use_parent_material = true
+tile_map_data = PackedByteArray(0, 0, 8, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0, 0, 7, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0, 0)
+tile_set = SubResource("TileSet_woimb")
 
-[node name="2ndStoryFloor" type="CollisionShape2D" parent="StaticBody2D" unique_id=1682401044]
-position = Vector2(1253, 475)
-shape = SubResource("RectangleShape2D_ycpgg")
-
-[node name="1stStoryFloor2" type="CollisionShape2D" parent="StaticBody2D" unique_id=581839344]
-position = Vector2(1316.5, 908)
-shape = SubResource("RectangleShape2D_ycpgg")
-one_way_collision = true
-
-[node name="BasementFloor3" type="CollisionShape2D" parent="StaticBody2D" unique_id=66933646]
-position = Vector2(1243, 1354)
-shape = SubResource("RectangleShape2D_ycpgg")
-
-[node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1610297960]
-position = Vector2(53.5, 713.5)
-shape = SubResource("RectangleShape2D_i1gdu")
-
-[node name="RightWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1773334802]
-position = Vector2(2458, 731)
-shape = SubResource("RectangleShape2D_i1gdu")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1147193156]
-polygon = PackedVector2Array(82, 970, 120, 973, 123, 1001, 157, 1002, 157, 1029, 187, 1029, 186, 1062, 215, 1063, 215, 1094, 241, 1094, 239, 1127, 264, 1129, 263, 1162, 287, 1163, 288, 1193, 315, 1194, 315, 1219, 319, 1219, 317, 1238, 334, 1238, 335, 1261, 359, 1262, 359, 1302, 82, 1307)
+[node name="Level" type="TileMapLayer" parent="Parallax2D/Level" unique_id=795141346]
+tile_set = SubResource("TileSet_wlwl6")
 
 [node name="Door" type="Area2D" parent="." unique_id=1222839539 node_paths=PackedStringArray("target_position") groups=["Door", "Player"]]
 script = ExtResource("3_txo2w")
@@ -95,11 +81,6 @@ shape = SubResource("RectangleShape2D_wlwl6")
 
 [node name="FromDoorA" type="Marker2D" parent="." unique_id=1857143123]
 position = Vector2(2296, 826)
-
-[node name="Traps" type="TileMapLayer" parent="." unique_id=859846409 groups=["Traps"]]
-use_parent_material = true
-tile_map_data = PackedByteArray(0, 0, 8, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0, 0, 7, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0, 0)
-tile_set = SubResource("TileSet_woimb")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=283302675]
 unique_name_in_owner = true
