@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dfipexn0hpw7f" path="res://Assets/Backgrounds/e0481706-b4b0-4d2f-bf1c-a2afacea7c26.png" id="2_txo2w"]
 [ext_resource type="Script" uid="uid://b0ga5nchu0avd" path="res://Scripts/door.gd" id="3_txo2w"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="4_qje7x"]
+[ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="5_woimb"]
+[ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="6_n2l3o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycpgg"]
 size = Vector2(2287, 44)
@@ -98,5 +100,40 @@ position = Vector2(2296, 826)
 use_parent_material = true
 tile_map_data = PackedByteArray(0, 0, 8, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0, 0, 7, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0, 0)
 tile_set = SubResource("TileSet_woimb")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=283302675]
+unique_name_in_owner = true
+position = Vector2(174, 383)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1720012451]
+
+[node name="Lives" type="Control" parent="CanvasLayer" unique_id=1637156766]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LivesTexture" type="TextureRect" parent="CanvasLayer/Lives" unique_id=678964931]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 75.0
+offset_right = 116.0
+offset_bottom = 175.0
+texture = ExtResource("5_woimb")
+stretch_mode = 4
+
+[node name="LivesLabel" type="Label" parent="CanvasLayer/Lives" unique_id=343194189]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 102.0
+offset_right = 149.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("6_n2l3o")
+theme_override_font_sizes/font_size = 32
+text = "x 3"
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
