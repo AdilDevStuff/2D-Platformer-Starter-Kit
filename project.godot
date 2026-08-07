@@ -8,12 +8,16 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
-config/name="2D-Platformer-Starter"
+config/name="GMTK2026"
 config/tags=PackedStringArray("starterkit")
-run/main_scene="res://Scenes/Levels/Level_01.tscn"
-config/features=PackedStringArray("4.4", "Forward Plus")
+run/main_scene="uid://c74ki2tveu6hs"
+config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0.105882, 0.458824, 0.733333, 1)
 boot_splash/image="res://Assets/Splash/2D Platformer Starter Kit Splash.png"
 config/icon="res://Icon.png"
@@ -40,6 +44,10 @@ enabled=PackedStringArray()
 [global_group]
 
 Traps=""
+Chocolate=""
+Battery=""
+CatFood=""
+conductive=""
 
 [input]
 

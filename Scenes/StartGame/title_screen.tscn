@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c74ki2tveu6hs"]
+
+[ext_resource type="Script" uid="uid://b584tpi7ys2u8" path="res://Scenes/StartGame/title_screen.gd" id="1_rldvm"]
+
+[sub_resource type="Gradient" id="Gradient_rldvm"]
+offsets = PackedFloat32Array(0, 0.60294116, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.49264705, 0.49264705, 0.49264705, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_peaih"]
+gradient = SubResource("Gradient_rldvm")
+
+[node name="TitleScreen" type="Control" unique_id=825216356]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rldvm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=402195838]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=1891646066]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_peaih")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=119440953]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=98763914]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1187800401]
+layout_mode = 2
+text = "NINE LIVES"
+
+[node name="Start" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1591703462]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=551135066]
+layout_mode = 2
+text = "Quit"

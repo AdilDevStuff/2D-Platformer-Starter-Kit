@@ -1,22 +1,19 @@
 extends Area2D
 
-# You can change these to your likings
 @export var amplitude := 4
 @export var frequency := 5
-
 var time_passed = 0
 var initial_position := Vector2.ZERO
 
 func _ready():
 	initial_position = position
+	add_to_group("Coin")
 
 func _process(delta):
-	coin_hover(delta) # Call the coin_hover function
+	coin_hover(delta)
 
-# Coin Hover Animation
 func coin_hover(delta):
 	time_passed += delta
-	
 	var new_y = initial_position.y + amplitude * sin(frequency * time_passed)
 	position.y = new_y
 
@@ -28,4 +25,20 @@ func _on_body_entered(body):
 		var tween = create_tween()
 		tween.tween_property(self, "scale", Vector2.ZERO, 0.1)
 		await tween.finished
-		queue_free()
+		deactivate()
+
+
+func deactivate():
+	visible = false
+	set_deferred("monitoring", false)
+	set_deferred("monitorable", false)
+	set_process(false)
+
+func reset():
+	visible = true
+	scale = Vector2.ONE
+	set_deferred("monitoring", true)
+	set_deferred("monitorable", true)
+	set_process(true)
+	time_passed = 0
+	position = initial_position

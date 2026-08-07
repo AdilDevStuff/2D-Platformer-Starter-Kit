@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cy64brcx0rib4"]
+
+[ext_resource type="Script" uid="uid://bib3utnp7t5a4" path="res://Scripts/lvl_btn.gd" id="1_ylqlb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5wxr"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 26.0
+content_margin_bottom = 10.0
+bg_color = Color(0.078431375, 0.11372549, 0.16078432, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 4
+
+[node name="lvlBtn" type="Button" unique_id=809065794]
+custom_minimum_size = Vector2(300, 100)
+offset_right = 135.0
+offset_bottom = 100.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_y5wxr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y5wxr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y5wxr")
+text = "Level1"
+script = ExtResource("1_ylqlb")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

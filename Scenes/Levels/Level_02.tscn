@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bjb3dx2x4bocm"]
+[gd_scene format=4 uid="uid://bjb3dx2x4bocm"]
 
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_lpo2y"]
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="3_nht2m"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://domyi75bwl5ad" path="res://Scripts/GameUI.gd" id="6_um0jo"]
 [ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="7_ns8o6"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="8_doswy"]
+[ext_resource type="PackedScene" uid="uid://b6k1ydhh0jvgp" path="res://Scenes/Prefabs/chocolate.tscn" id="8_ombkc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rndpx"]
 texture = ExtResource("5_8107p")
@@ -42,17 +43,17 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gs0qk")
 
-[node name="Level_02" type="Node2D"]
+[node name="Level_02" type="Node2D" unique_id=2097265743]
 
-[node name="Player" parent="." instance=ExtResource("2_lpo2y")]
+[node name="Player" parent="." unique_id=1766409015 instance=ExtResource("2_lpo2y")]
 z_index = 1
 position = Vector2(150, 318)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1969761758]
 position = Vector2(16, 36)
 limit_left = 0
-limit_right = 1985
-limit_bottom = 705
+limit_right = 2669
+limit_bottom = 1504
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -64,39 +65,39 @@ drag_bottom_margin = 0.4
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Coins" type="Node2D" parent="."]
+[node name="Coins" type="Node2D" parent="." unique_id=1104863556]
 
-[node name="Coin" parent="Coins" instance=ExtResource("3_nht2m")]
+[node name="Coin" parent="Coins" unique_id=578700064 instance=ExtResource("3_nht2m")]
 position = Vector2(603, 392)
 
-[node name="Coin2" parent="Coins" instance=ExtResource("3_nht2m")]
+[node name="Coin2" parent="Coins" unique_id=976436889 instance=ExtResource("3_nht2m")]
 position = Vector2(864, 353)
 
-[node name="Coin3" parent="Coins" instance=ExtResource("3_nht2m")]
+[node name="Coin3" parent="Coins" unique_id=94307747 instance=ExtResource("3_nht2m")]
 position = Vector2(1131, 398)
 
-[node name="GameManager" type="Node2D" parent="."]
+[node name="GameManager" type="Node2D" parent="." unique_id=1938319630]
 script = ExtResource("4_ndpt4")
 
-[node name="Level" type="Node2D" parent="."]
+[node name="Level" type="Node2D" parent="." unique_id=1315558801]
 
-[node name="Traps" type="TileMapLayer" parent="Level" groups=["Traps"]]
+[node name="Traps" type="TileMapLayer" parent="Level" unique_id=311718730 groups=["Traps"]]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAKAAgAAAAAAAUAAAALAAgAAAAAAAUAAAAMAAgAAAAAAAUAAAANAAgAAAAAAAUAAAAOAAgAAAAAAAUAAAAPAAgAAAAAAAUAAAAQAAgAAAAAAAUAAAA=")
+tile_map_data = PackedByteArray("AAAKAAgAAAAAAAUAAAALAAgAAAAAAAUAAAAMAAgAAAAAAAUAAAANAAgAAAAAAAUAAAAOAAgAAAAAAAUAAAAPAAgAAAAAAAUAAAAQAAgAAAAAAAUAAAAdAAYAAAAAAAUAAAAeAAYAAAAAAAUAAAAiAAcAAAAAAAUAAAA=")
 tile_set = SubResource("TileSet_2fcbi")
 
-[node name="Ground" type="TileMapLayer" parent="Level"]
+[node name="Ground" type="TileMapLayer" parent="Level" unique_id=296601513]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAAAAgAAAADAAAAAAAAAAkAAAADAAAAAAABAAgAAAADAAAAAAABAAkAAAADAAAAAAACAAgAAAADAAAAAAACAAkAAAADAAAAAAADAAgAAAADAAAAAAADAAkAAAADAAAAAAAEAAgAAAADAAAAAAAEAAkAAAADAAAAAAAFAAgAAAADAAAAAAAFAAkAAAADAAAAAAAGAAgAAAADAAAAAAAGAAkAAAADAAAAAAAHAAgAAAADAAAAAAAHAAkAAAADAAAAAAAIAAgAAAADAAAAAAAIAAkAAAADAAAAAAAJAAgAAAADAAAAAAAJAAkAAAADAAAAAAAMAAcAAAAAAAIAAAANAAcAAAAAAAIAAAAOAAcAAAAAAAIAAAARAAcAAAAAAAAAAAASAAcAAAAAAAAAAAATAAcAAAAAAAAAAAAUAAcAAAAAAAAAAAAVAAcAAAAAAAAAAAARAAgAAAADAAAAAAASAAgAAAADAAAAAAASAAkAAAADAAAAAAATAAkAAAADAAAAAAAUAAkAAAADAAAAAAAVAAkAAAADAAAAAAAVAAgAAAADAAAAAAAUAAgAAAADAAAAAAATAAgAAAADAAAAAAARAAkAAAADAAAAAAAKAAkAAAADAAAAAAALAAkAAAADAAAAAAAMAAkAAAADAAAAAAANAAkAAAADAAAAAAAOAAkAAAADAAAAAAAPAAkAAAADAAAAAAAQAAkAAAADAAAAAAAAAAoAAAADAAAAAAABAAoAAAADAAAAAAACAAoAAAADAAAAAAADAAoAAAADAAAAAAAEAAoAAAADAAAAAAAFAAoAAAADAAAAAAAGAAoAAAADAAAAAAAHAAoAAAADAAAAAAAIAAoAAAADAAAAAAAJAAoAAAADAAAAAAAKAAoAAAADAAAAAAALAAoAAAADAAAAAAAMAAoAAAADAAAAAAANAAoAAAADAAAAAAAOAAoAAAADAAAAAAAPAAoAAAADAAAAAAAQAAoAAAADAAAAAAARAAoAAAADAAAAAAASAAoAAAADAAAAAAATAAoAAAADAAAAAAAUAAoAAAADAAAAAAAVAAoAAAADAAAAAAAWAAcAAAAAAAAAAAAXAAcAAAAAAAAAAAAYAAcAAAAAAAAAAAAZAAcAAAAAAAAAAAAaAAcAAAAAAAAAAAAbAAcAAAAAAAAAAAAcAAcAAAAAAAAAAAAdAAcAAAAAAAAAAAAeAAcAAAAAAAAAAAAWAAgAAAADAAAAAAAWAAkAAAADAAAAAAAWAAoAAAADAAAAAAAXAAoAAAADAAAAAAAXAAkAAAADAAAAAAAXAAgAAAADAAAAAAAYAAoAAAADAAAAAAAYAAkAAAADAAAAAAAYAAgAAAADAAAAAAAZAAgAAAADAAAAAAAZAAkAAAADAAAAAAAZAAoAAAADAAAAAAAaAAkAAAADAAAAAAAaAAgAAAADAAAAAAAaAAoAAAADAAAAAAAbAAgAAAADAAAAAAAbAAkAAAADAAAAAAAcAAoAAAADAAAAAAAcAAkAAAADAAAAAAAcAAgAAAADAAAAAAAdAAkAAAADAAAAAAAdAAgAAAADAAAAAAAeAAkAAAADAAAAAAAfAAkAAAADAAAAAAAfAAgAAAADAAAAAAAeAAoAAAADAAAAAAAdAAoAAAADAAAAAAAbAAoAAAADAAAAAAAeAAgAAAADAAAAAAAfAAoAAAADAAAAAAAfAAcAAAAAAAAAAAAfAAYAAAADAAAAAAAfAAUAAAADAAAAAAAfAAQAAAADAAAAAAAfAAMAAAADAAAAAAAfAAIAAAADAAAAAAAfAAEAAAADAAAAAAAfAAAAAAADAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAAAAgAAAADAAAAAAAAAAkAAAADAAAAAAABAAgAAAADAAAAAAABAAkAAAADAAAAAAACAAgAAAADAAAAAAACAAkAAAADAAAAAAADAAgAAAADAAAAAAADAAkAAAADAAAAAAAEAAgAAAADAAAAAAAEAAkAAAADAAAAAAAFAAgAAAADAAAAAAAFAAkAAAADAAAAAAAGAAgAAAADAAAAAAAGAAkAAAADAAAAAAAHAAgAAAADAAAAAAAHAAkAAAADAAAAAAAIAAgAAAADAAAAAAAIAAkAAAADAAAAAAAJAAgAAAADAAAAAAAJAAkAAAADAAAAAAARAAcAAAAAAAAAAAASAAcAAAAAAAAAAAATAAcAAAAAAAAAAAAUAAcAAAAAAAAAAAAVAAcAAAAAAAAAAAARAAgAAAADAAAAAAASAAgAAAADAAAAAAASAAkAAAADAAAAAAATAAkAAAADAAAAAAAUAAkAAAADAAAAAAAVAAkAAAADAAAAAAAVAAgAAAADAAAAAAAUAAgAAAADAAAAAAATAAgAAAADAAAAAAARAAkAAAADAAAAAAAKAAkAAAADAAAAAAALAAkAAAADAAAAAAAMAAkAAAADAAAAAAANAAkAAAADAAAAAAAOAAkAAAADAAAAAAAPAAkAAAADAAAAAAAQAAkAAAADAAAAAAAAAAoAAAADAAAAAAABAAoAAAADAAAAAAACAAoAAAADAAAAAAADAAoAAAADAAAAAAAEAAoAAAADAAAAAAAFAAoAAAADAAAAAAAGAAoAAAADAAAAAAAHAAoAAAADAAAAAAAIAAoAAAADAAAAAAAJAAoAAAADAAAAAAAKAAoAAAADAAAAAAALAAoAAAADAAAAAAAMAAoAAAADAAAAAAANAAoAAAADAAAAAAAOAAoAAAADAAAAAAAPAAoAAAADAAAAAAAQAAoAAAADAAAAAAARAAoAAAADAAAAAAASAAoAAAADAAAAAAATAAoAAAADAAAAAAAUAAoAAAADAAAAAAAVAAoAAAADAAAAAAAWAAcAAAAAAAAAAAAXAAcAAAAAAAAAAAAYAAcAAAAAAAAAAAAZAAcAAAAAAAAAAAAaAAcAAAAAAAAAAAAbAAcAAAAAAAAAAAAcAAcAAAAAAAAAAAAdAAcAAAAAAAAAAAAeAAcAAAAAAAAAAAAWAAgAAAADAAAAAAAWAAkAAAADAAAAAAAWAAoAAAADAAAAAAAXAAoAAAADAAAAAAAXAAkAAAADAAAAAAAXAAgAAAADAAAAAAAYAAoAAAADAAAAAAAYAAkAAAADAAAAAAAYAAgAAAADAAAAAAAZAAgAAAADAAAAAAAZAAkAAAADAAAAAAAZAAoAAAADAAAAAAAaAAkAAAADAAAAAAAaAAgAAAADAAAAAAAaAAoAAAADAAAAAAAbAAgAAAADAAAAAAAbAAkAAAADAAAAAAAcAAoAAAADAAAAAAAcAAkAAAADAAAAAAAcAAgAAAADAAAAAAAdAAkAAAADAAAAAAAdAAgAAAADAAAAAAAeAAkAAAADAAAAAAAfAAkAAAADAAAAAAAfAAgAAAADAAAAAAAeAAoAAAADAAAAAAAdAAoAAAADAAAAAAAbAAoAAAADAAAAAAAeAAgAAAADAAAAAAAfAAoAAAADAAAAAAAfAAcAAAADAAAAAAAfAAYAAAADAAAAAAAfAAUAAAADAAAAAAAfAAQAAAADAAAAAAAfAAEAAAADAAAAAAAfAAAAAAADAAAAAAAhAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAgAAUAAAADAAAAAAAgAAYAAAADAAAAAAAgAAcAAAADAAAAAAAgAAgAAAADAAAAAAAhAAUAAAADAAAAAAAhAAYAAAADAAAAAAAhAAcAAAADAAAAAAAgAAAAAAADAAAAAAAgAP//AAAAAAAAAAAfAP//AAAAAAAAAAAeAP//AAAAAAAAAAAeAAAAAAADAAAAAAAjAAcAAAAAAAAAAAAkAAcAAAAAAAAAAAAlAAcAAAAAAAAAAAAmAAcAAAAAAAAAAAAnAAcAAAAEAAAAAAAoAAcAAAAEAAAAAAApAAcAAAAEAAAAAAAqAAcAAAAEAAAAAAArAAcAAAAEAAAAAAAsAAcAAAAAAAAAAAAtAAcAAAAAAAAAAAAuAAcAAAAAAAAAAAAvAAcAAAAAAAAAAAAsAAgAAAADAAAAAAAsAAkAAAADAAAAAAArAAkAAAADAAAAAAAmAAgAAAADAAAAAAAmAAkAAAADAAAAAAAnAAkAAAADAAAAAAAoAAoAAAADAAAAAAApAAoAAAADAAAAAAAqAAoAAAADAAAAAAAjAAgAAAADAAAAAAAkAAgAAAADAAAAAAAkAAkAAAADAAAAAAAlAAkAAAADAAAAAAAlAAoAAAADAAAAAAAmAAoAAAADAAAAAAAmAAsAAAADAAAAAAAnAAsAAAADAAAAAAAnAAwAAAADAAAAAAAoAAwAAAADAAAAAAAjAAkAAAADAAAAAAAjAAoAAAADAAAAAAAkAAoAAAADAAAAAAAlAAsAAAADAAAAAAAmAAwAAAADAAAAAAAlAAgAAAADAAAAAAAnAAoAAAADAAAAAAAoAAsAAAADAAAAAAApAAsAAAADAAAAAAAqAAsAAAADAAAAAAArAAsAAAADAAAAAAArAAoAAAADAAAAAAAsAAoAAAADAAAAAAAtAAoAAAADAAAAAAAtAAkAAAADAAAAAAAtAAgAAAADAAAAAAAuAAgAAAADAAAAAAAvAAgAAAADAAAAAAApAAwAAAADAAAAAAAqAAwAAAADAAAAAAArAAwAAAADAAAAAAAsAAwAAAADAAAAAAAsAAsAAAADAAAAAAAtAAsAAAADAAAAAAAuAAoAAAADAAAAAAAvAAoAAAADAAAAAAAvAAkAAAADAAAAAAAuAAkAAAADAAAAAAAnAAgAAAAEAAEAAAAoAAgAAAAEAAEAAAApAAgAAAAEAAEAAAAqAAgAAAAEAAEAAAArAAgAAAAEAAEAAAAoAAkAAAAEAAEAAAApAAkAAAAEAAEAAAAqAAkAAAAEAAEAAAAhAAkAAAADAAAAAAAhAAgAAAADAAAAAAAgAAkAAAADAAAAAAAiAAkAAAADAAAAAAAiAAgAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_ywwrl")
 
-[node name="SpawnPoint" type="Marker2D" parent="Level"]
+[node name="SpawnPoint" type="Marker2D" parent="Level" unique_id=1670874179]
 unique_name_in_owner = true
 position = Vector2(232, 328)
 
-[node name="TutorialText" type="Node2D" parent="."]
+[node name="TutorialText" type="Node2D" parent="." unique_id=1811039386]
 
-[node name="Credits" type="Label" parent="TutorialText"]
+[node name="Credits" type="Label" parent="TutorialText" unique_id=12312576]
 offset_left = 1416.0
 offset_top = 256.0
 offset_right = 1694.0
@@ -111,9 +112,9 @@ STARTER KIT BY
 G2P STUDIOS"
 horizontal_alignment = 1
 
-[node name="UserInterface" type="CanvasLayer" parent="."]
+[node name="UserInterface" type="CanvasLayer" parent="." unique_id=1499754376]
 
-[node name="GameUI" type="Control" parent="UserInterface"]
+[node name="GameUI" type="Control" parent="UserInterface" unique_id=951423572]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,14 +123,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_um0jo")
 
-[node name="Score" type="Control" parent="UserInterface/GameUI"]
+[node name="Score" type="Control" parent="UserInterface/GameUI" unique_id=1751097249]
 unique_name_in_owner = true
-layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score"]
+[node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score" unique_id=1902861353]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 16.0
@@ -139,7 +139,7 @@ offset_bottom = 116.0
 texture = ExtResource("7_ns8o6")
 stretch_mode = 4
 
-[node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score"]
+[node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score" unique_id=1876296809]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 104.0
@@ -152,3 +152,34 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("8_doswy")
 theme_override_font_sizes/font_size = 32
 text = "x 3"
+
+[node name="Lives" type="Control" parent="UserInterface/GameUI" unique_id=526241251]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LivesTexture" type="TextureRect" parent="UserInterface/GameUI/Lives" unique_id=390864430]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 75.0
+offset_right = 116.0
+offset_bottom = 175.0
+texture = ExtResource("7_ns8o6")
+stretch_mode = 4
+
+[node name="LivesLabel" type="Label" parent="UserInterface/GameUI/Lives" unique_id=2090835093]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 102.0
+offset_right = 149.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("8_doswy")
+theme_override_font_sizes/font_size = 32
+text = "x 3"
+
+[node name="Chocolate" parent="." unique_id=1070552759 instance=ExtResource("8_ombkc")]
+position = Vector2(1318, 365)

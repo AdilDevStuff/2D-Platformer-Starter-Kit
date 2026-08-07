@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://usvbtxldamps"]
+
+[ext_resource type="Script" uid="uid://dvtg1gqqo0fyu" path="res://Scripts/catfood.gd" id="1_6patp"]
+[ext_resource type="Texture2D" uid="uid://jaj3ppu57w0d" path="res://Assets/untitled copy 3.png" id="1_f4vyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkdcs"]
+size = Vector2(36, 58)
+
+[node name="catFood" type="Area2D" unique_id=2006542476 groups=["CatFood"]]
+script = ExtResource("1_6patp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=149652318]
+texture = ExtResource("1_f4vyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=931643142]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_hkdcs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

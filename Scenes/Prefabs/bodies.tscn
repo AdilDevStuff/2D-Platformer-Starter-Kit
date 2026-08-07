@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c3qas4y41gw7e"]
+
+[ext_resource type="Script" uid="uid://dmyqymyxeb703" path="res://Scripts/bodies.gd" id="1_gfwyv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dqmft"]
+load_path = "res://.godot/imported/platformerPack_character.png-b980ac2e92b0d9489fe95f0cfb6b85bd.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wojsl"]
+size = Vector2(55, 56.000004)
+
+[node name="Body" type="RigidBody2D" unique_id=536018055]
+physics_interpolation_mode = 1
+continuous_cd = 2
+script = ExtResource("1_gfwyv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1679290371]
+position = Vector2(-3, 54)
+rotation = 1.5707964
+texture = SubResource("CompressedTexture2D_dqmft")
+offset = Vector2(-50, -10)
+region_enabled = true
+region_rect = Rect2(196.5, 122.25, 98.5, 76.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1918125227]
+position = Vector2(1.9999981, 5.5000014)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_wojsl")

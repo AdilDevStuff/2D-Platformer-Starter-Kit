@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b6k1ydhh0jvgp"]
+
+[ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="1_0imjg"]
+[ext_resource type="Script" uid="uid://dmo5ibvjiyboi" path="res://Scripts/chocolate.gd" id="1_fif1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkdcs"]
+size = Vector2(61, 56)
+
+[node name="Chocolate" type="Area2D" unique_id=1070552759 groups=["Chocolate"]]
+script = ExtResource("1_fif1u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2122093047]
+texture = ExtResource("1_0imjg")
+region_enabled = true
+region_rect = Rect2(254.5, 193.25, 64, 59)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=836595756]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_hkdcs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

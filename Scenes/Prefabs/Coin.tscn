@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfmh3fm2de78o"]
+[gd_scene format=3 uid="uid://bfmh3fm2de78o"]
 
 [ext_resource type="Script" uid="uid://cucxl5dsdevya" path="res://Scripts/Coin.gd" id="1_hh4vd"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="2_cukgg"]
@@ -12,18 +12,18 @@ point_count = 3
 offsets = PackedFloat32Array(0.625, 1)
 colors = PackedColorArray(0.914063, 0.734375, 0, 1, 1, 1, 1, 0)
 
-[node name="Coin" type="Area2D"]
+[node name="Coin" type="Area2D" unique_id=1761712077]
 script = ExtResource("1_hh4vd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=41226137]
 texture = ExtResource("2_cukgg")
 region_enabled = true
 region_rect = Rect2(520, 208, 48, 32)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1369634266]
 polygon = PackedVector2Array(-8, -14, 8, -14, 18, -5, 18, -2, 2, 14, -1, 14, -17, -2, -17, -5)
 
-[node name="CoinSparkles" type="CPUParticles2D" parent="."]
+[node name="CoinSparkles" type="CPUParticles2D" parent="." unique_id=1425109650]
 amount = 4
 texture = ExtResource("3_7eb8x")
 direction = Vector2(0, 0)
