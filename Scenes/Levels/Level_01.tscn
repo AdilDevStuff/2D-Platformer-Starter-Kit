@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://cjanwm3sy2x37"]
+[gd_scene format=4 uid="uid://cjanwm3sy2x37"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
 [ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_0ac5u"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_pay8t"]
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="3_rrh80"]
-[ext_resource type="Script" uid="uid://g6oa1rfikatd" path="res://Scripts/GameManager.gd" id="4_vgfkr"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_wqbaa"]
 [ext_resource type="Script" uid="uid://domyi75bwl5ad" path="res://Scripts/GameUI.gd" id="6_66mfc"]
 [ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="7_j7jun"]
@@ -44,18 +43,18 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rndpx")
 
-[node name="Level_01" type="Node2D"]
+[node name="Level_01" type="Node2D" unique_id=250055998]
 
-[node name="LevelFinishDoor" parent="." instance=ExtResource("1_oqkjg")]
+[node name="LevelFinishDoor" parent="." unique_id=1298159857 instance=ExtResource("1_oqkjg")]
 z_index = 1
 position = Vector2(1304, 400)
 next_scene = ExtResource("2_0ac5u")
 
-[node name="Player" parent="." instance=ExtResource("2_pay8t")]
+[node name="Player" parent="." unique_id=382966345 instance=ExtResource("2_pay8t")]
 z_index = 1
 position = Vector2(150, 318)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=196397238]
 position = Vector2(16, 36)
 limit_left = 0
 limit_bottom = 705
@@ -70,36 +69,36 @@ drag_bottom_margin = 0.4
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Coins" type="Node2D" parent="."]
+[node name="Coins" type="Node2D" parent="." unique_id=256775902]
 
-[node name="Coin" parent="Coins" instance=ExtResource("3_rrh80")]
+[node name="Coin" parent="Coins" unique_id=881854544 instance=ExtResource("3_rrh80")]
 position = Vector2(576, 406)
 
-[node name="Coin2" parent="Coins" instance=ExtResource("3_rrh80")]
+[node name="Coin2" parent="Coins" unique_id=60982645 instance=ExtResource("3_rrh80")]
 position = Vector2(712, 353)
 
-[node name="Coin3" parent="Coins" instance=ExtResource("3_rrh80")]
+[node name="Coin3" parent="Coins" unique_id=719432125 instance=ExtResource("3_rrh80")]
 position = Vector2(844, 408)
 
-[node name="Level" type="Node2D" parent="."]
+[node name="Level" type="Node2D" parent="." unique_id=1790261152]
 
-[node name="Ground" type="TileMapLayer" parent="Level"]
+[node name="Ground" type="TileMapLayer" parent="Level" unique_id=392685192]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAAAAgAAAADAAAAAAAAAAkAAAADAAAAAAABAAkAAAADAAAAAAACAAkAAAADAAAAAAADAAkAAAADAAAAAAAEAAkAAAADAAAAAAAEAAoAAAADAAAAAAADAAoAAAADAAAAAAACAAoAAAADAAAAAAABAAoAAAADAAAAAAAAAAoAAAADAAAAAAABAAgAAAADAAAAAAACAAgAAAADAAAAAAADAAgAAAADAAAAAAAEAAgAAAADAAAAAAANAAcAAAAAAAAAAAANAAgAAAADAAAAAAANAAkAAAADAAAAAAANAAoAAAADAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAADAAAAAAAOAAkAAAADAAAAAAAOAAoAAAADAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAADAAAAAAAPAAkAAAADAAAAAAAPAAoAAAADAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAADAAAAAAAQAAkAAAADAAAAAAAQAAoAAAADAAAAAAARAAcAAAAAAAAAAAARAAgAAAADAAAAAAARAAkAAAADAAAAAAARAAoAAAADAAAAAAASAAcAAAAAAAAAAAASAAgAAAADAAAAAAASAAkAAAADAAAAAAASAAoAAAADAAAAAAATAAcAAAAAAAAAAAATAAgAAAADAAAAAAATAAkAAAADAAAAAAATAAoAAAADAAAAAAAUAAcAAAAAAAAAAAAUAAgAAAADAAAAAAAUAAkAAAADAAAAAAAUAAoAAAADAAAAAAAVAAcAAAAAAAAAAAAVAAgAAAADAAAAAAAVAAkAAAADAAAAAAAVAAoAAAADAAAAAAAKAAoAAAADAAAAAAALAAoAAAADAAAAAAAMAAoAAAADAAAAAAAFAAoAAAADAAAAAAAGAAoAAAADAAAAAAAHAAoAAAADAAAAAAAIAAoAAAADAAAAAAAJAAoAAAADAAAAAAAFAAcAAAAAAAIAAAAIAAcAAAAAAAIAAAAJAAcAAAAAAAIAAAAMAAcAAAAAAAIAAAD//woAAAADAAAAAAD//wkAAAADAAAAAAD//wgAAAADAAAAAAD//wcAAAADAAAAAAD//wYAAAADAAAAAAD//wUAAAADAAAAAAD//wQAAAADAAAAAAD//wMAAAADAAAAAAD//wIAAAADAAAAAAD//wEAAAADAAAAAAD//wAAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_ywwrl")
 
-[node name="Traps" type="TileMapLayer" parent="Level" groups=["Traps"]]
+[node name="Traps" type="TileMapLayer" parent="Level" unique_id=308352179 groups=["Traps"]]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAMAAkAAAAAAAUAAAALAAkAAAAAAAUAAAAKAAkAAAAAAAUAAAAJAAkAAAAAAAUAAAAIAAkAAAAAAAUAAAAHAAkAAAAAAAUAAAAGAAkAAAAAAAUAAAAFAAkAAAAAAAUAAAA=")
 tile_set = SubResource("TileSet_2fcbi")
 
-[node name="SpawnPoint" type="Marker2D" parent="Level"]
+[node name="SpawnPoint" type="Marker2D" parent="Level" unique_id=1591847469]
 unique_name_in_owner = true
 position = Vector2(174, 383)
 
-[node name="TutorialText" type="Node2D" parent="."]
+[node name="TutorialText" type="Node2D" parent="." unique_id=1678826069]
 
-[node name="Movement" type="Label" parent="TutorialText"]
+[node name="Movement" type="Label" parent="TutorialText" unique_id=1324955069]
 offset_left = 264.0
 offset_top = 336.0
 offset_right = 542.0
@@ -112,7 +111,7 @@ theme_override_font_sizes/font_size = 32
 text = "A & D To Move
 Spacebar To Jump"
 
-[node name="SetNextScene" type="Label" parent="TutorialText"]
+[node name="SetNextScene" type="Label" parent="TutorialText" unique_id=1717709229]
 offset_left = 808.0
 offset_top = 256.0
 offset_right = 1239.0
@@ -126,12 +125,9 @@ text = "Level Finish
 Set the next scene
 from \"LevelFinishDoor\" Area"
 
-[node name="GameManager" type="Node2D" parent="."]
-script = ExtResource("4_vgfkr")
+[node name="UserInterface" type="CanvasLayer" parent="." unique_id=1062757528]
 
-[node name="UserInterface" type="CanvasLayer" parent="."]
-
-[node name="GameUI" type="Control" parent="UserInterface"]
+[node name="GameUI" type="Control" parent="UserInterface" unique_id=1889427194]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -140,13 +136,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_66mfc")
 
-[node name="Score" type="Control" parent="UserInterface/GameUI"]
+[node name="Score" type="Control" parent="UserInterface/GameUI" unique_id=1852598412]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score"]
+[node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score" unique_id=514864551]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 16.0
@@ -156,7 +152,7 @@ offset_bottom = 116.0
 texture = ExtResource("7_j7jun")
 stretch_mode = 4
 
-[node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score"]
+[node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score" unique_id=164155028]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 104.0
