@@ -1,4 +1,5 @@
 # PLATFORMER 2D STARTER BY GAMES2PLAY STUDIOS
+(Coming Soon on Godot Asset Store)
 
 This starter kit includes all the essential mechanics for your 2d platformer game. Using this kit,
 you will be able to make your own 2d platformer in no time.
